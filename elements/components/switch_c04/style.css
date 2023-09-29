@@ -1,0 +1,46 @@
+#bg-switch {
+    background-color: aqua;
+    display: flex;
+    font-weight: 700;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 8rem;
+}
+
+#switch {
+    width: 3rem;
+    display: flex;
+    justify-items: flex-start;
+    background-color: Transparent;
+    z-index: 100;
+    border: solid 0.3rem white;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    border-radius: 100rem;
+}
+
+.left {
+    transform: translateX(0rem);
+}
+
+.right {
+    transform: translateX(1.8rem);
+}
+
+.off {
+    color: #5F8FCB;
+}
+
+.on {
+    color: white;
+}
+
+#ball {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100rem;
+    margin: 0.1rem;
+    background-color: white;
+    transition: ease-in 150ms;
+}
