@@ -1,0 +1,13 @@
+#bg-button{
+    background-color: #00345E;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6pt;
+    padding: 0.5rem;
+}
+#bg-button:hover{
+    background-color: #0091A5;
+}
