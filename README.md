@@ -1,6 +1,6 @@
 ## Iniciando
 
-Primeiro instale as dependências:
+### Primeiro instale as dependências
 `npm i install`
 Para iniciar o projeto use:
 `npm run dev`
