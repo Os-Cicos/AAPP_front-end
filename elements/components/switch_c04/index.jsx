@@ -21,7 +21,7 @@ export default function Switch() {
                 <div id='right-icon'>
                     <Image
                         src={isOn ? "/assets/speaker_on.svg" : "/assets/speaker_off.svg"}
-                        alt="Vercel Logo"
+                        alt="Icone alto-falante"
                         className={'speaker-icon'}
                         width={25}
                         height={25}
