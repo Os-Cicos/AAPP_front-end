@@ -1,0 +1,51 @@
+.janela-flutuante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 440px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-chat {
+  max-height: 800px;
+  overflow-y: auto;
+  width: 402px;
+  height: 474px;
+  background-color: #ffffff;
+  margin-top: 16px;
+  margin-left: 18px;
+  padding-top: 42.29px;
+  display: flex;
+}
+
+.mensagem-usuario {
+  background-color: #00345E;
+  color: #EFEFEF;
+  padding: 10px;
+  margin: 5px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 16px;
+  margin-left: 28.52px;
+  float: right;
+}
+
+.mensagem-bot {
+  background-color: #D9D9D9;
+  padding: 10px;
+  margin: 5px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 16px;
+  margin-left: 28.52px;
+  float: none;
+  flex-direction: row;
+  display: flex;
+}
+
+.imagem{
+  margin: 15px;
+}
