@@ -1,0 +1,15 @@
+
+
+.button{
+    width: Hug (35px);
+    height: Hug (35px);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #9747FF;
+    border-radius: 10px;
+    background: #9747FF;
+  }
+  .button:hover{
+    background: #0091A5;
+    border: #0091A5;
+  }
