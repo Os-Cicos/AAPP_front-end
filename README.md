@@ -1,3 +1,4 @@
+
 ## Iniciando
 
 ### Primeiro instale as dependências
@@ -5,6 +6,3 @@
 Para iniciar o projeto use:
 `npm run dev`
 Url do projeto: [http://localhost:3000](http://localhost:3000)
-=======
-# AsPP_front-end
-Front-end do Assistente Pessoal Personalizado.
