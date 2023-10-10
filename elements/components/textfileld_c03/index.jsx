@@ -9,7 +9,7 @@
 import React from 'react';
 import './style.css'
 
-export default function Textfield({ id, label, placeholder, type }) {
+export default function Textfield({ id, label, placeholder, type, register }) {
 
     return (
         <>
@@ -19,7 +19,7 @@ export default function Textfield({ id, label, placeholder, type }) {
                         {label}
                     </label>
                 </div>
-                <input id={id} className='input' type={type} placeholder={placeholder} />
+                <input id={id} className='input' type={type} placeholder={placeholder} {...register}/>
             </div>
         </>
 
