@@ -1,17 +1,13 @@
-import Button from "@/elements/components/button_c05";
-import Switch from "@/elements/components/switch_c04";
-import Textfield from "@/elements/components/textfileld_c03";
+"use client"
+import React from 'react'
+import ChatModal from "@/elements/fragments/chatModal";
+import OpenButton from '@/elements/components/openButton_c01';
 
 export default function Home() {
+  const [isOpen, setIsOpen] = React.useState(false)
   return (
     <main style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
-      <Textfield
-        label={'Insira sua pergunta'}
-        placeholder={'Digite aqui...'}
-        id={'TextField'} type={'text'} />
-      <Button alt='Voltar' icon={'/assets/back_arrow_icon.svg'} />
-      <Switch />
-
+      {isOpen? <ChatModal setClose={()=>{setIsOpen(false)}}/> : <OpenButton onCLick={()=>{setIsOpen(true)}}/>}
     </main>
   )
 }

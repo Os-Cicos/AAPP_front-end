@@ -1,0 +1,36 @@
+#bg-chat {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #00345E;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+    padding-top: 0.5rem;
+  }
+  #header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    flex-direction: row;
+  }
+  
+  #footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    border-top: 0.2rem solid #00345E;
+    width: 23rem;
+  }
+  
+  #TextField {
+    width: 15rem;
+  }
+  

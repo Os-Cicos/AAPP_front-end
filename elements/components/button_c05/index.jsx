@@ -15,7 +15,7 @@ export default function Button({icon, onClick, type, alt}) {
 
     return (
         <>
-            <button type={`${type ? type : 'button'}`} id='bg-button' onClick={() => onClick}>
+            <button type={`${type ? type : 'button'}`} id='bg-button' onClick={onClick}>
                 <Image
                     src={icon ? icon:'/assets/submit_arrow_icon.svg'}
                     alt={alt}

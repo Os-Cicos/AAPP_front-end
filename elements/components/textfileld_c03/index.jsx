@@ -1,5 +1,3 @@
-'use client'
-
 // O componente Textfield é uma caixa de texto reutilizável.
 // Ele aceita os seguintes props:
 
