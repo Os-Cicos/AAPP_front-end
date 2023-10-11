@@ -1,5 +1,9 @@
 .button {
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
   width: 4rem;
   height: 4rem;
   margin: 1rem;

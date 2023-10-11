@@ -3,7 +3,6 @@ import React from 'react'
 import ChatModal from "@/elements/fragments/chatModal";
 import OpenButton from '@/elements/components/openButton_c01';
 
-
 export default function Home() {
   const [isOpen, setIsOpen] = React.useState(false)
 
