@@ -1,0 +1,79 @@
+#ball-container {
+  width: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@keyframes jumping {
+  from {
+    transform: translateY(-0.2rem);
+  }
+
+  to {
+    transform: translateY(0.2rem);
+  }
+}
+
+.ball-1,
+.ball-2,
+.ball-3 {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 20rem;
+  animation-name: jumping;
+  transition: ease-out;
+  animation-duration: 300ms;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+.ball-user{
+  background-color: white;
+}
+.ball-bot{
+  background-color: #333333;
+}
+.ball-1 {
+  animation-delay: 0ms;
+}
+
+.ball-2 {
+  animation-delay: 100ms;
+}
+
+.ball-3 {
+  animation-delay: 300ms;
+}
+
+.user-message {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #00345E;
+  color: #EFEFEF;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border-bottom-right-radius: 0;
+  width: fit-content;
+  float: right;
+}
+
+.bot-message {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #D9D9D9;
+  color: #333333;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border-bottom-left-radius: 0;
+  width: fit-content;
+  float: left;
+}
+
+.img {
+  margin-right: 1rem;
+}
