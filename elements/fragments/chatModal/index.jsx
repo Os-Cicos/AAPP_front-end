@@ -12,37 +12,43 @@ import { Query } from '@/services';
 // Ele inclui componentes como Chat (para a exibição do chat em si), Textfield (para a entrada de texto do usuário),
 // Button (para botões no cabeçalho e rodapé) e Switch (um interruptor).
 
-export default function ChatModal({ setClose, isOpen}) {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const [messages, setMessages] = React.useState([{text:"Sou seu professor pessoal, como posso ajudá-lo?", isUser:false}])
-    
+export default function ChatModal({ setClose, isOpen }) {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const [messages, setMessages] = React.useState([{ text: "Sou seu professor pessoal, como posso ajudá-lo?", isUser: false }])
+    const [isWaiting, setIsWaiting] = React.useState(false)
     async function onsubmit(data) {
         try {
+            reset()
+            setIsWaiting(true)
             const queryRespone = messages
-            queryRespone.push({text:data.query, isUser:true})
+            queryRespone.push({ text: data.query, isUser: true })
             const response = await Query(data)
-            queryRespone.push({text:response, isUser:false})
+            queryRespone.push({ text: response, isUser: false })
             setMessages(queryRespone);
         } catch (error) {
             console.error(error);
         }
+        finally {
+            setIsWaiting(false);
+        }
     }
+
 
     return (
         <>
-            <div id='bg-chat' className={`${isOpen? 'bg-open' : ''}`}>
+            <div id='bg-chat' className={`${isOpen ? 'bg-open' : ''}`}>
                 <div id='header'>
                     <Button icon="assets/back_arrow_icon.svg" onClick={setClose} alt={'Fechar chat'} />
                     <Switch />
                 </div>
-                <Chat messages={messages} />
+                <Chat isWaiting={isWaiting} messages={messages} />
                 <form onSubmit={handleSubmit(onsubmit)}>
                     <div id='footer'>
                         <Textfield
                             label={'Insira sua pergunta'}
-                            placeholder={'Digite aqui...'}  
+                            placeholder={'Digite aqui...'}
                             id={'TextField'} type={'text'}
-                            register={register('query', { required: true })}/>
+                            register={register('query', { required: true })} />
                         <Button type='submit' alt={'Enviar mensagem'} />
                     </div>
                 </form>

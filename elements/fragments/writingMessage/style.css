@@ -16,6 +16,18 @@
   }
 }
 
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .ball-1,
 .ball-2,
 .ball-3 {
@@ -28,12 +40,15 @@
   animation-direction: alternate;
   animation-iteration-count: infinite;
 }
-.ball-user{
+
+.ball-user {
   background-color: white;
 }
-.ball-bot{
-  background-color: #333333;
+
+.ball-bot {
+  background-color: #5F8FCB;
 }
+
 .ball-1 {
   animation-delay: 0ms;
 }
@@ -46,8 +61,11 @@
   animation-delay: 300ms;
 }
 
-.user-message {
+.user-message-write {
   display: flex;
+  align-self: self-end;
+  animation: pop-in 250ms;
+  transition: ease-out;
   align-items: center;
   justify-content: flex-end;
   background-color: #00345E;
@@ -57,21 +75,24 @@
   border-radius: 1rem;
   border-bottom-right-radius: 0;
   width: fit-content;
-  float: right;
+
 }
 
-.bot-message {
+.bot-message-write {
+  animation: pop-in 250ms;
+  transition: ease-out;
   display: flex;
   align-items: center;
+  will-change: transform, opacity;
   justify-content: flex-start;
   background-color: #D9D9D9;
-  color: #333333;
+  color: #5F8FCB;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   border-bottom-left-radius: 0;
   width: fit-content;
-  float: left;
+  align-self: self-start;
 }
 
 .img {
