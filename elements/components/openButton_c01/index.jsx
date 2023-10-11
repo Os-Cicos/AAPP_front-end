@@ -4,10 +4,10 @@ import ImagemButton from 'public/assets/logo_button.svg'
 import Image from 'next/image';
 
 
-export default function OpenButton({ onCLick }) {
+export default function OpenButton({ onCLick, isOpen }) {
   return (
     <div>
-      <button className='button' onClick={onCLick}>
+      <button className={`button ${isOpen ? "bt-expand" : "bt-shrink"}`} onClick={onCLick}>
         <Image
           src={ImagemButton}
           alt="Seu professor ajudante"

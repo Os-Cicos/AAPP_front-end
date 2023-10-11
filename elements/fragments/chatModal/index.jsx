@@ -30,7 +30,7 @@ export default function ChatModal({ setClose, isOpen}) {
 
     return (
         <>
-            <div id='bg-chat' className={`${isOpen? 'bg-open' : ''}`}>
+            <div id='bg-chat' className={`${isOpen? 'bg-open' : 'bg-close'}`}>
                 <div id='header'>
                     <Button icon="assets/back_arrow_icon.svg" onClick={setClose} alt={'Fechar chat'} />
                     <Switch />

@@ -5,22 +5,25 @@
   background-color: #00345E;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   z-index: 2;
   width: 0;
-  margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
-  transition: ease-in-out 500ms;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 2rem;
+  transition: ease-out 300ms;
+  transition-delay: 250ms;
 }
 
 .bg-open {
   width: 25rem !important;
-  margin-left: 1rem !important;
-  margin-right: 1rem !important;
   padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
+  margin-right: 1rem !important;
+}
+.bg-close {
+  transition-delay: 0ms !important;
 }
 
 #header {
