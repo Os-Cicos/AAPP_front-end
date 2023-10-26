@@ -42,7 +42,7 @@ export default function ChatModal({ setClose, isOpen }) {
                     <Switch />
                 </div>
                 <Chat isWaiting={isWaiting} messages={messages} />
-                <form onSubmit={handleSubmit(onsubmit)}>
+                <form autocomplete="off" onSubmit={handleSubmit(onsubmit)}>
                     <div id='footer'>
                         <Textfield
                             label={'Insira sua pergunta'}

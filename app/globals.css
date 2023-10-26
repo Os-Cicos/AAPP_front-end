@@ -1,3 +1,25 @@
-:root{
+:root {
     font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container_placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.placeholder_bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
