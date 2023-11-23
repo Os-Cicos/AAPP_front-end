@@ -7,8 +7,7 @@ const api = axios.create({
 export async function Query(message) {
     try {
         const response = await api.post("http://127.0.0.1:8000/api/assistant/", { query: message });
-        console.log(response.data.response);
-        return response.data.response;
+        return response;
     } catch (error) {
         console.error(error);
         return null;

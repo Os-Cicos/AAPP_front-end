@@ -7,6 +7,7 @@ import Button from '@/elements/components/button_c05';
 import Switch from '@/elements/components/switch_c04';
 import { useForm } from 'react-hook-form';
 import { Query } from '@/services';
+import AudioChat from '@/elements/components/audioChat_c06';
 
 // Este é o componente ChatModal, que representa um modal de chat em um aplicativo.
 // Ele inclui componentes como Chat (para a exibição do chat em si), Textfield (para a entrada de texto do usuário),
@@ -16,6 +17,8 @@ export default function ChatModal({ setClose, isOpen }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [messages, setMessages] = React.useState([{ text: "Sou seu professor pessoal, como posso ajudá-lo?", isUser: false }])
     const [isWaiting, setIsWaiting] = React.useState(false)
+    const [file, setFile] = React.useState(null)
+    const [isOn, setIsOn] = React.useState(false)
     async function onsubmit(data) {
         try {
             reset()
@@ -23,7 +26,9 @@ export default function ChatModal({ setClose, isOpen }) {
             const queryRespone = messages
             queryRespone.push({ text: data.query, isUser: true })
             const response = await Query(data)
-            queryRespone.push({ text: response, isUser: false })
+            queryRespone.push({ text: response.data.response_text, isUser: false })
+            console.log(response)
+            setFile(response.data.response_audio)
             setMessages(queryRespone);
         } catch (error) {
             console.error(error);
@@ -39,10 +44,10 @@ export default function ChatModal({ setClose, isOpen }) {
             <div id='bg-chat' className={`${isOpen ? 'bg-open' : 'bg-close'}`}>
                 <div id='header'>
                     <Button icon="assets/back_arrow_icon.svg" onClick={setClose} alt={'Fechar chat'} />
-                    <Switch />
+                    <Switch isOn={isOn} setIsOn={setIsOn} />
                 </div>
-                <Chat isWaiting={isWaiting} messages={messages} />
-                <form autocomplete="off" onSubmit={handleSubmit(onsubmit)}>
+                {isOn ? <AudioChat message={{ 'text': messages[-1], 'audio_base64': file }} isWaiting={isWaiting}></AudioChat> : <Chat isWaiting={isWaiting} messages={messages} />}
+                <form autoComplete="off" onSubmit={handleSubmit(onsubmit)}>
                     <div id='footer'>
                         <Textfield
                             label={'Insira sua pergunta'}

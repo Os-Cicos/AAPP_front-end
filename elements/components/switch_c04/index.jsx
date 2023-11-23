@@ -6,9 +6,7 @@ import './style.css'
 // O componente Switch é uma representação visual de um interruptor de ligar/desligar.
 // Ele possui uma animação que muda o estado do interruptor quando clicado.
 
-export default function Switch() {
-    const [isOn, setIsOn] = React.useState(false)
-
+export default function Switch({isOn, setIsOn}) {
     return (
         <>
             <div id='bg-switch'>
