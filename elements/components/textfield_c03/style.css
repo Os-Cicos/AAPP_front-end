@@ -11,11 +11,37 @@
     color: #00345E;
     border-radius: 0.5rem;
     position: relative;
+    transition: 0.2s;
 }
 
 .field:focus-within {
     border: solid 0.15rem #0091A5;
     color: #0091A5;
+}
+
+.microphone-button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-image: url('./../../../public/assets/microphone-off.svg');
+    background-repeat: no-repeat;
+    transition: 0.25s;
+    background-color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: -0.5rem;
+    margin-left: 0.5rem;
+    transition: 0.2s;
+}
+.microphone-button:hover{
+    background-image: url('./../../../public/assets/microphone-on.svg');
+}
+
+.input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .label-container {
