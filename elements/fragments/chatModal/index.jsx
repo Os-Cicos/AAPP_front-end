@@ -25,7 +25,7 @@ export default function ChatModal({ setClose, isOpen }) {
             setIsWaiting(true)
             const queryRespone = messages
             queryRespone.push({ text: data.query, isUser: true })
-            const response = await Query(data)
+            const response = await Query(data.query)
             queryRespone.push({ text: response.data.response_text, isUser: false })
             console.log(response)
             setFile(response.data.response_audio)
