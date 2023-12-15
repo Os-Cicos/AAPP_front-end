@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 6pt;
+    transition: 0.2s;
     padding: 0.5rem;
 }
 #bg-button:hover{
