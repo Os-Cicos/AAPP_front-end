@@ -1,25 +1,44 @@
-const sleep = time => new Promise(resolve => setTimeout(resolve, time))
 const b2text = blob => new Promise((resolve) => {
     const reader = new FileReader()
     reader.onloadend = e => resolve(e.srcElement.result)
     reader.readAsDataURL(blob)
 })
 
-export var record = time => new Promise(async resolve => {
+let recorder;
+let timeOut;
+
+export var record = (time, setStart, setText, setAudio, setPlay) => new Promise(async resolve => {
     let stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-    let recorder = new MediaRecorder(stream)
+    recorder = new MediaRecorder(stream)
     let chunks = []
     recorder.ondataavailable = e => chunks.push(e.data)
     recorder.start()
-    let stopRecording = () => {
-        recorder.stop()
-    }
-    await sleep(time)
     recorder.onstop = async () => {
         let blob = new Blob(chunks)
+        const audioUrl = URL.createObjectURL(blob);
+        const audio = new Audio(audioUrl);
+        audio.addEventListener("ended", function (e) {
+            setPlay(false)
+        });
+        audio.addEventListener('pause', function (e) {
+            setPlay(false)
+        });
+        audio.addEventListener("play", function (e) {
+            setPlay(true)
+        });
         let text = await b2text(blob)
-        resolve(text)
+        console.log(text)
+        setAudio(audio)
+        setText(text)
+        setStart(false)
         alert('terminou')
     }
-    return stopRecording;
+    timeOut = setTimeout(() => recorder.stop(), time);
 })
+
+export var stopRecordingEarly = () => {
+    if (recorder) {
+        clearTimeout(timeOut);
+        recorder.stop();
+    }
+}

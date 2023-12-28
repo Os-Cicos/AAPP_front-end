@@ -1,5 +1,5 @@
 .field {
-    max-width: 20rem;
+    width: 17.5rem;
     height: 0.3rem;
     display: flex;
     flex-direction: column;
@@ -19,11 +19,50 @@
     color: #0091A5;
 }
 
-.microphone-button{
+.audio-label {
+    font-size: 10pt;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.microphone-button {
+    background-image: url('./../../../public/assets/microphone-off.svg');
+}
+
+.microphone-button:hover {
+    background-image: url('./../../../public/assets/microphone-on.svg');
+}
+
+.stop-button {
+    background-image: url('./../../../public/assets/stop-icon-off.svg');
+}
+
+.stop-button:hover {
+    background-image: url('./../../../public/assets/stop-icon-on.svg');
+}
+
+.play-button {
+    background-image: url('./../../../public/assets/play-icon-off.svg');
+}
+
+.play-button:hover {
+    background-image: url('./../../../public/assets/play-icon-on.svg');
+}
+
+.close-button {
+    background-image: url('./../../../public/assets/close-icon-off.svg');
+}
+
+.close-button:hover {
+    background-image: url('./../../../public/assets/close-icon-on.svg');
+}
+
+.icon-button {
     outline: none;
     border: none;
     cursor: pointer;
-    background-image: url('./../../../public/assets/microphone-off.svg');
     background-repeat: no-repeat;
     transition: 0.25s;
     background-color: white;
@@ -33,11 +72,14 @@
     margin-left: 0.5rem;
     transition: 0.2s;
 }
-.microphone-button:hover{
-    background-image: url('./../../../public/assets/microphone-on.svg');
+
+.small-button {
+    background-size: contain;
+    height: 1.2rem !important;
+    width: 1.2rem !important;
 }
 
-.input-container{
+.input-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -57,10 +99,15 @@
 
 .input {
     font-family: 'Poppins', sans-serif;
+    display: block;
     margin: 0 auto;
     width: 100%;
     border: none;
     font-size: 10pt;
+}
+
+.disabled {
+    display: none !important;
 }
 
 .input:focus {
