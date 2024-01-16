@@ -24,9 +24,9 @@ export default function Textfield({ id, label, placeholder, type, register }) {
 
     // Função para iniciar a gravação de áudio.
     const startRecording = () => {
-        record(12000, setStart, setText, setAudio, setPlay, setResponse);
+        record(60000, setStart, setText, setAudio, setPlay, setResponse);
         setStart(true);
-        setTime(12000);
+        setTime(60000);
     }
 
     // Função para manipular a reprodução ou pausa do áudio gravado.
