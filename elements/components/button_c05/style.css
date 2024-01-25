@@ -1,5 +1,5 @@
 #bg-button{
-    background-color: #00345E;
+    background-color: var(--azul);
     cursor: pointer;
     border: none;
     display: flex;
@@ -10,5 +10,5 @@
     padding: 0.5rem;
 }
 #bg-button:hover{
-    background-color: #0091A5;
+    background-color: var(--azul-on);
 }

@@ -8,15 +8,15 @@
     background-color: white;
     padding: 1rem;
     border: solid 0.15rem #00345E;
-    color: #00345E;
+    color: var(--azul);
     border-radius: 0.5rem;
     position: relative;
     transition: 0.2s;
 }
 
 .field:focus-within {
-    border: solid 0.15rem #0091A5;
-    color: #0091A5;
+    border: solid 0.15rem var(--azul-on);
+    color: var(--azul-on);
 }
 
 .audio-label {
@@ -112,4 +112,11 @@
 
 .input:focus {
     outline: 0;
+}
+
+@media (max-width: 425px) {
+    .field {
+        width: 100% !important;
+    }
+
 }

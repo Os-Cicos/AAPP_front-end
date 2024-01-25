@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: #00345E;
+  background-color: var(--azul);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -44,12 +44,30 @@
   align-items: center;
   padding: 1rem;
   background-color: white;
-  border-top: 0.2rem solid #00345E;
+  border-top: 0.2rem solid var(--azul);
   width: 23rem;
+  bottom:0;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
 
 #TextField {
   width: 15rem;
+}
+
+@media (max-width: 425px) {
+  #header{
+    width: initial!important;
+  }
+  .bg-open{
+    margin: auto!important;
+    width: 95%!important;
+  }
+  #footer{
+    width: initial!important;
+  }
+  #bg-chat{
+    margin: 0!important;
+    margin-bottom: 1rem!important;
+  }
 }

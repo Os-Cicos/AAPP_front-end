@@ -43,7 +43,7 @@ export default function AudioChat({ message, isWaiting }) {
 
   // Renderização do componente.
   return (
-    <div className="floating-window">
+    <div className="floating-window-audio">
       <div className="container-audio-chat">
         {/* Componente de ícone de alto-falante. */}
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
