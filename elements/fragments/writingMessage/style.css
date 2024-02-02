@@ -1,4 +1,4 @@
-#ball-container {
+.ball-container {
   width: 2.5rem;
   display: flex;
   flex-direction: row;

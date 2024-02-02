@@ -10,12 +10,12 @@ export default function Home() {
 
   return (
     <main style={{ display: 'flex', alignItems: 'center', flexDirection: 'row'}}>
-      <div className='container_placeholder'>
+      {/* <div className='container_placeholder'>
         <Image
           src={placeholder_bg}
           className='placeholder_bg'
         />
-      </div>
+      </div> */}
       <ChatModal isOpen={isOpen} setClose={() => { setIsOpen(false) }} />
       <OpenButton isOpen={isOpen} onCLick={() => { setIsOpen(true) }} />
     </main>

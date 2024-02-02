@@ -1,0 +1,62 @@
+.ball-container {
+  width: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@keyframes jumping {
+  from {
+    transform: translateY(-0.2rem);
+  }
+
+  to {
+    transform: translateY(0.2rem);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.ball-1,
+.ball-2,
+.ball-3 {
+  background-color: #5F8FCB;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 20rem;
+  animation-name: jumping;
+  transition: ease-out;
+  animation-duration: 300ms;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+.enabled{
+  display: flex !important;
+}
+.disabled{
+  display: none !important;
+}
+
+
+.ball-1 {
+  animation-delay: 0ms;
+}
+
+.ball-2 {
+  animation-delay: 100ms;
+}
+
+.ball-3 {
+  animation-delay: 300ms;
+}

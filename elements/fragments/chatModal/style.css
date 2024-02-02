@@ -46,7 +46,6 @@
   background-color: white;
   border-top: 0.2rem solid var(--azul);
   width: 23rem;
-  bottom:0;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }

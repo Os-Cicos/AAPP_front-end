@@ -105,7 +105,9 @@
     border: none;
     font-size: 10pt;
 }
-
+.enabled{
+    display: block !important;
+}
 .disabled {
     display: none !important;
 }
