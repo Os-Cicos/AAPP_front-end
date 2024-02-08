@@ -1,17 +1,15 @@
 .floating-window {
   width: 25rem;
-  height: 73dvh;
-  max-height: 80%;
   background-color: white;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .container-chat {
-  overflow-y: auto;
+  overflow-y: scroll;
   flex-grow: 1;
-  max-height: 100%;
   font-size: 10pt;
 }
 
