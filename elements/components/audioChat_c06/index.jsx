@@ -48,11 +48,11 @@ export default function AudioChat({ message, isWaiting }) {
         {/* Componente de ícone de alto-falante. */}
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <Image
-            src={"/assets/speaker_off.svg"}
+            src={"/assets/logo-bot-audio.svg"}
             alt="Icone alto-falante"
             className={'speaker-icon-avatar'}
-            width={75}
-            height={75}
+            width={150}
+            height={150}
             priority
             // Ao clicar no ícone, verifica se não está reproduzindo para iniciar a reprodução.
             onClick={() => (!isPlaying ? playAudio() : null)}
