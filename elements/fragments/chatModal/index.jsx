@@ -13,6 +13,7 @@ import Switch from '@/elements/components/switch_c04';
 import { useForm } from 'react-hook-form';
 import { Query } from '@/services';
 import AudioChat from '@/elements/components/audioChat_c06';
+import SelectionMenu from '../selectionMenu';
 
 // Declaração do componente funcional ChatModal.
 export default function ChatModal({ setClose, isOpen }) {
@@ -60,6 +61,8 @@ export default function ChatModal({ setClose, isOpen }) {
                     <Button icon="assets/back_arrow_icon.svg" onClick={setClose} alt={'Fechar chat'} />
                     <Switch isOn={isOn} setIsOn={setIsOn} />
                 </div>
+                <SelectionMenu options={[{ title: 'Python', icon: 'assets/pythonIcon.svg', index: 0 },
+                { title: 'Lógica', icon: 'assets/logicaIcon.svg', index: 1 }]} />
                 <div id='middle'>
                     {/* Condicional para renderizar o componente de áudio ou o componente de chat. */}
                     {isOn ? <AudioChat message={{ 'text': messages[-1], 'audio_base64': file }} isWaiting={isWaiting}></AudioChat> : <Chat isWaiting={isWaiting} messages={messages} />}
@@ -74,7 +77,7 @@ export default function ChatModal({ setClose, isOpen }) {
                         register={register('query', { required: true })} />
                     <Button type='submit' alt={'Enviar mensagem'} />
                 </form>
-            </div>
+            </div >
         </>
     );
 }

@@ -29,9 +29,15 @@
 }
 
 .bt-expand {
-  height: 96dvh;
-  width: 26rem;
-  margin-bottom: 0.5rem;
+  position: fixed !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  z-index: 1;
+  width: 25rem !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  margin-right: 1rem !important;
+  height: 94vh !important;
 }
 
 .bt-shrink {
@@ -43,9 +49,8 @@
 }
 @media (max-width: 425px) {
   .bt-expand{
-    margin: 0!important;
-    margin-bottom: 1rem!important;
-    width: 100%!important;
-    height: 100!important;
+    margin: auto!important;
+    margin-bottom: 1rem !important;
+    width: 95%!important;
   }
 }

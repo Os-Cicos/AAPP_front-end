@@ -1,7 +1,7 @@
 .floating-window {
-  width: 25rem;
   background-color: white;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,7 +10,7 @@
 .container-chat {
   overflow-y: scroll;
   flex-grow: 1;
-  font-size: 10pt;
+  font-size: 8pt;
 }
 
 @keyframes pop-in {
@@ -39,7 +39,7 @@
   max-width: 20rem;
   align-self: self-end;
   animation: pop-in 250ms;
-  transition: ease-out;
+  transition: ease-out  ;
   word-break: break-all;
   text-overflow: ellipsis;
 }
