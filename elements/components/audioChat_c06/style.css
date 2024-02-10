@@ -1,6 +1,6 @@
 .floating-window-audio {
-    width: 25rem;
-    height: 30rem;
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
     padding-bottom: 1rem;
     display: flex;
