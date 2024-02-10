@@ -18,7 +18,7 @@ export default function Chat({ messages, isWaiting }) {
     <div className="floating-window">
       <div className="container-chat">
         {/* Estrutura de mensagens do chat. */}
-        <div style={{display:'flex', flexDirection:'column'}}>
+        <div style={{display:'flex', flexDirection:'column', maxHeight:'100%'}}>
           {messages.map((message, index) => (
             <div
               key={index}

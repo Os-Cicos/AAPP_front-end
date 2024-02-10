@@ -1,14 +1,33 @@
-#bg-button{
+#bg-button {
     background-color: var(--azul);
     cursor: pointer;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: fit-content;
     border-radius: 6pt;
     transition: 0.2s;
-    padding: 0.5rem;
+    padding: 0.3rem;
 }
-#bg-button:hover{
+
+#buttonText {
+    padding-left: 0.3rem;
+    font-size: 10pt;
+    font-weight: 500;
+}
+
+.bt-outlined {
+    background-color: white !important;
+    color: var(--azul) !important;
+    border: 0.3rem solid var(--azul) !important;
+}
+
+.bt-outlined:hover {
+    color: var(--azul-on) !important;
+    border: 0.3rem solid var(--azul-on) !important;
+}
+
+#bg-button:hover {
     background-color: var(--azul-on);
 }

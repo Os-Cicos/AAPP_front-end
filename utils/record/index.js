@@ -15,10 +15,10 @@ let recorder;
 let timeOut;
 
 // Função principal para iniciar a gravação de áudio.
-export var record = (time, setStart, setText, setAudio, setPlay, setResponse, setIsWaiting) => new Promise(async resolve => {
+export var record = (time, setStart, setText, setAudio, setPlay, setResponse, setIsWaiting, setTime) => new Promise(async resolve => {
     // Obtém a permissão do usuário para acessar o microfone.
-    let stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-
+    navigator.mediaDevices.getUserMedia({ audio: true }).then((stream)=>
+    {
     // Inicializa o gravador de mídia com o stream de áudio.
     recorder = new MediaRecorder(stream)
     let chunks = []
@@ -28,7 +28,7 @@ export var record = (time, setStart, setText, setAudio, setPlay, setResponse, se
 
     // Inicia o gravador.
     recorder.start()
-
+    
     // Configura o evento para ser executado quando a gravação é interrompida.
     recorder.onstop = async () => {
         // Inicia animação de espera
@@ -68,6 +68,13 @@ export var record = (time, setStart, setText, setAudio, setPlay, setResponse, se
 
     // Configura um timeout para parar a gravação após o tempo especificado.
     timeOut = setTimeout(() => recorder.stop(), time);
+    setStart(true);
+    setTime(60000);
+
+    }
+    ).catch((error)=>{
+        alert('Erro ao iniciar gravação, verifique permissão do navegador e tente novamente')
+    })
 })
 
 // Função para interromper a gravação prematuramente.

@@ -34,5 +34,16 @@ export async function Transcribe(audio_record) {
     }
 }
 
+export async function AlterPDF(index) {
+    try {
+        alert(index)
+        const response = await api.post("/api/loader/", { index:index });
+        return response;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
 // Exportação da instância do axios para uso em outras partes do código.
 export default api;
