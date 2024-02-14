@@ -9,10 +9,10 @@ const api = axios.create({
 });
 
 // Função de consulta à API para interagir com o assistente virtual.
-export async function Query(query, isAudio) {
+export async function Query(query, isAudio, idUser) {
     try {
         // Realiza uma solicitação POST para a rota específica com os parâmetros fornecidos.
-        const response = await api.post("/api/assistant/", { query: query, use_audio: isAudio });
+        const response = await api.post(`/api/assistant/?idUser=${idUser}`, { query: query, use_audio: isAudio });
         return response;
     } catch (error) {
         // Em caso de erro, exibe uma mensagem de erro no console e retorna nulo.

@@ -4,7 +4,7 @@
 
 // Importação de bibliotecas, estilos e componentes necessários para o componente.
 'use client'
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.css'
 import Chat from '@/elements/components/chat_c02';
 import Textfield from '@/elements/components/textfield_c03';
@@ -14,11 +14,13 @@ import { useForm } from 'react-hook-form';
 import { Query } from '@/services';
 import AudioChat from '@/elements/components/audioChat_c06';
 import SelectionMenu from '../selectionMenu';
+import { UserContext } from '@/context/userContext';
 
 // Declaração do componente funcional ChatModal.
 export default function ChatModal({ setClose, isOpen }) {
     // Utilização do React Hook Form para gerenciar o estado do formulário.
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { user } = useContext(UserContext);
 
     // Estados locais para gerenciar mensagens, espera, arquivo de áudio e o estado do interruptor.
     const [messages, setMessages] = React.useState([{ text: "Sou seu professor pessoal, como posso ajudá-lo?", isUser: false }])
@@ -36,7 +38,7 @@ export default function ChatModal({ setClose, isOpen }) {
             // Construção da resposta do chat e chamada à função de consulta.
             const queryResponse = messages
             queryResponse.push({ text: data.query, isUser: true })
-            const response = await Query(data.query, isOn)
+            const response = await Query(data.query, isOn,)
             queryResponse.push({ text: response.data.response_text, isUser: false })
 
             // Atualização do estado com a resposta do servidor.
