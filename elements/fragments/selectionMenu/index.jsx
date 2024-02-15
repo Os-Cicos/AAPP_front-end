@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@/elements/components/button_c05";
 import './style.css';
-import { AlterPDF } from "@/services";
+import { AlterPDF, listPDF } from "@/services";
 import WaintingSelection from "../waitingSelection";
 
 /* SelectionMenu: Componente de seleção de conteeúddos
@@ -12,14 +12,25 @@ import WaintingSelection from "../waitingSelection";
                 {title: 'Python', icon: 'assets/pythonIcon.svg', index: 0 },
                 { title: 'Lógica', icon: 'assets/logicaIcon.svg', index: 1 }]} />*/
 
-export default function SelectionMenu({ options }) {
-    const [isSelect, setIsSelect] = React.useState(Array(options.length).fill(false));
+
+
+export default function SelectionMenu({ }) {
+
+
+    const [list, setList] = React.useState([{}])
+    const [isSelect, setIsSelect] = React.useState(Array(list.length).fill(false));
+
     const [isWaiting, setIsWaiting] = React.useState(false);
+
+    React.useEffect(() => {
+        listPDF(setList)
+
+    }, [])
 
     const SelectPDF = (index) => {
         setIsWaiting(true)
         AlterPDF(index).then((response) => {
-            const newIsSelect = Array(options.length).fill(false);
+            const newIsSelect = Array(list.length).fill(false);
             newIsSelect[index] = true;
             setIsSelect(newIsSelect);
             setIsWaiting(false)
@@ -36,17 +47,17 @@ export default function SelectionMenu({ options }) {
             Conteúdos
             <div id='bg-selectionMenu2'>
                 <div id='optionsMap'>
-                    {options.map((option) => {
-                        const { icon, title, index } = option;
+                    {list?.map((option) => {
+                        const { index, name } = option;
                         return (
                             <div className='optionItem' key={index}>
                                 <Button
-                                    icon={icon}
                                     type="button"
-                                    alt={`Botão para selecionar conteúdo de ${title}`}
-                                    text={title}
+                                    alt={`Botão para selecionar conteúdo de ${name}`}
+                                    text={name}
                                     outlined={true}
                                     isSelected={isSelect[index]}
+                                    noIcon
                                     onClick={() => SelectPDF(index)}
                                 />
                             </div>

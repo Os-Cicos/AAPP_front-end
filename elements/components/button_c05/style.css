@@ -13,12 +13,13 @@
 
 #buttonText {
     font-family: 'Poppins', sans-serif;
-    padding-left: 0.3rem;
     font-size: 8pt;
     font-weight: 500;
 }
 
 .bt-outlined {
+padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
     background-color: white !important;
     color: var(--azul) !important;
     border: 0.2rem solid var(--azul) !important;
