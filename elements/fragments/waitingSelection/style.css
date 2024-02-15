@@ -36,7 +36,7 @@
   .ballS-1,
   .ballS-2,
   .ballS-3 {
-    background-color: white;
+    background-color: white !important;
     margin: 0.5rem;
     width: 0.5rem;
     height: 0.5rem;
@@ -55,14 +55,14 @@
   }
   
   
-  .ball-1 {
+  .ballS-1 {
     animation-delay: 0ms;
   }
   
-  .ball-2 {
+  .ballS-2 {
     animation-delay: 100ms;
   }
   
-  .ball-3 {
+  .ballS-3 {
     animation-delay: 300ms;
   }

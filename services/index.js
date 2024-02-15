@@ -34,6 +34,18 @@ export async function Transcribe(audio_record) {
     }
 }
 
+export async function listPDF(setList) {
+    try {
+        const response = await api.get("/api/loader/");
+        setList(response.data)
+        return response;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+
 export async function AlterPDF(index) {
     try {
         const response = await api.post("/api/loader/", { index:index });
