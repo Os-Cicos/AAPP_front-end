@@ -24,6 +24,7 @@ export default function ChatModal({ setClose, isOpen }) {
 
     // Estados locais para gerenciar mensagens, espera, arquivo de áudio e o estado do interruptor.
     const [messages, setMessages] = React.useState([{ text: "Sou seu professor pessoal, como posso ajudá-lo? Selecione o conteúdo desejado.", isUser: false }])
+    const [lastAudioMessage, setLastAudioMessage] = React.useState({ bot: "Nenhuma mensagem com resposta de texto foi encontrada", user: "" })
     const [isWaiting, setIsWaiting] = React.useState(false)
     const [file, setFile] = React.useState(null)
     const [isOn, setIsOn] = React.useState(false)
@@ -31,6 +32,7 @@ export default function ChatModal({ setClose, isOpen }) {
     // Função para processar o envio do formulário.
     async function onsubmit(data) {
         try {
+
             // Reset do formulário e indicação de espera.
             reset()
             setIsWaiting(true)
@@ -38,17 +40,19 @@ export default function ChatModal({ setClose, isOpen }) {
             // Construção da resposta do chat e chamada à função de consulta.
             const queryResponse = messages
             queryResponse.push({ text: data.query, isUser: true })
-            const response = await Query(data.query, isOn,)
+            const response = await Query(data.query, isOn)
             queryResponse.push({ text: response.data.response_text, isUser: false })
 
-            // Atualização do estado com a resposta do servidor.
-            setFile(response.data.response_audio)
+            if (isOn) {
+                setFile(response.data.response_audio)
+                setLastAudioMessage({ bot: response_text, user: queryResponse[-2] })
+                alert(lastAudioMessage.user)
+            }
             setMessages(queryResponse);
         } catch (error) {
             console.error(error);
         }
         finally {
-            // Finalização do estado de espera.
             setIsWaiting(false);
         }
     }
@@ -66,7 +70,8 @@ export default function ChatModal({ setClose, isOpen }) {
                 <SelectionMenu />
                 <div id='middle'>
                     {/* Condicional para renderizar o componente de áudio ou o componente de chat. */}
-                    {isOn ? <AudioChat message={{ 'text': messages[-1], 'audio_base64': file }} isWaiting={isWaiting}></AudioChat> : <Chat isWaiting={isWaiting} messages={messages} />}
+                    {isOn ? <AudioChat message={{ 'text': lastAudioMessage, 'audio_base64': file }} isWaiting={isWaiting}></AudioChat> : 
+                    <Chat isWaiting={isWaiting} messages={messages} />}
                 </div>
 
                 {/* Formulário de entrada de texto e botão de envio. */}
