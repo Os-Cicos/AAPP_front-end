@@ -36,7 +36,6 @@ export async function Transcribe(audio_record) {
 
 export async function AlterPDF(index) {
     try {
-        alert(index)
         const response = await api.post("/api/loader/", { index:index });
         return response;
     } catch (error) {

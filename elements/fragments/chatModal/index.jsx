@@ -23,7 +23,7 @@ export default function ChatModal({ setClose, isOpen }) {
     const { user } = useContext(UserContext);
 
     // Estados locais para gerenciar mensagens, espera, arquivo de áudio e o estado do interruptor.
-    const [messages, setMessages] = React.useState([{ text: "Sou seu professor pessoal, como posso ajudá-lo?", isUser: false }])
+    const [messages, setMessages] = React.useState([{ text: "Sou seu professor pessoal, como posso ajudá-lo? Selecione o conteúdo desejado.", isUser: false }])
     const [isWaiting, setIsWaiting] = React.useState(false)
     const [file, setFile] = React.useState(null)
     const [isOn, setIsOn] = React.useState(false)

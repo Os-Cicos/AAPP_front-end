@@ -15,7 +15,7 @@ export default function Button({ icon, onClick, type, alt, text, outlined, isSel
 
     return (
         <>
-            <button type={`${type ? type : 'button'}`} id='bg-button' className={`${outlined ? 'bt-outlined' : ''}`} onClick={onClick}>
+            <button type={`${type ? type : 'button'}`} id='bg-button' className={`${outlined ? 'bt-outlined' : ''} ${isSelected? 'bt-selected':''}`} onClick={onClick}>
                 <Image
                     src={icon ? icon : '/assets/submit_arrow_icon.svg'}
                     alt={alt}

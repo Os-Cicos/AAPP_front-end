@@ -12,20 +12,26 @@
 }
 
 #buttonText {
+    font-family: 'Poppins', sans-serif;
     padding-left: 0.3rem;
-    font-size: 10pt;
+    font-size: 8pt;
     font-weight: 500;
 }
 
 .bt-outlined {
     background-color: white !important;
     color: var(--azul) !important;
-    border: 0.3rem solid var(--azul) !important;
+    border: 0.2rem solid var(--azul) !important;
+}
+
+.bt-selected {
+    color: var(--azul-on) !important;
+    border: 0.2rem solid var(--azul-on) !important;
 }
 
 .bt-outlined:hover {
     color: var(--azul-on) !important;
-    border: 0.3rem solid var(--azul-on) !important;
+    border: 0.2rem solid var(--azul-on) !important;
 }
 
 #bg-button:hover {
