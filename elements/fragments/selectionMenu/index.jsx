@@ -4,18 +4,26 @@ import './style.css';
 import { AlterPDF } from "@/services";
 import WaintingSelection from "../waitingSelection";
 
+/* SelectionMenu: Componente de seleção de conteeúddos
+    props:
+        options: array de objetos {title: 'Titulo do conteudo', icon: 'url para o icone', index:'number para representando o index dele no back'
+        exemplo de uso:
+        <SelectionMenu options={[
+                {title: 'Python', icon: 'assets/pythonIcon.svg', index: 0 },
+                { title: 'Lógica', icon: 'assets/logicaIcon.svg', index: 1 }]} />*/
+
 export default function SelectionMenu({ options }) {
     const [isSelect, setIsSelect] = React.useState(Array(options.length).fill(false));
     const [isWaiting, setIsWaiting] = React.useState(false);
 
     const SelectPDF = (index) => {
         setIsWaiting(true)
-        AlterPDF(index).then((response)=>{
+        AlterPDF(index).then((response) => {
             const newIsSelect = Array(options.length).fill(false);
             newIsSelect[index] = true;
             setIsSelect(newIsSelect);
             setIsWaiting(false)
-        }).catch((error)=>{
+        }).catch((error) => {
             alert(error.response.status)
             setIsWaiting(false)
         })
@@ -24,7 +32,7 @@ export default function SelectionMenu({ options }) {
 
     return (
         <div id="bg-selectionMenu">
-            <WaintingSelection isWaiting={isWaiting}/>
+            <WaintingSelection isWaiting={isWaiting} />
             Conteúdos
             <div id='bg-selectionMenu2'>
                 <div id='optionsMap'>
