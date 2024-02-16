@@ -91,7 +91,7 @@ export default function ChatModal({ setClose, isOpen }) {
                 <form id='footer' autoComplete="off" onSubmit={handleSubmit(onsubmit)}>
                     <Textfield
                         label={'Insira sua pergunta'}
-                        placeholder={'Digite aqui...'}
+                        placeholder={selected.index==-1?'Selecione um conteúdo':'Digite aqui...'}
                         id={'TextField'} type={'text'}
                         register={register('query', { required: true })} />
                     <Button disabled={selected.index == -1? true: false} type='submit' alt={'Enviar mensagem'} />
