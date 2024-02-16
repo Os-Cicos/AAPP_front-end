@@ -1,16 +1,18 @@
 .floating-window-audio {
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    padding-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   }
-  
+  .speaker-icon-avatar{
+    margin-left: 0.5rem;
+
+  }
   .container-audio-chat {
-    overflow-y: auto;
-    padding: 1rem;
+    height: 100%;
+    overflow-y: scroll;
     flex-grow: 1;
-    font-size: 10pt;
+    font-size: 8pt;
   }

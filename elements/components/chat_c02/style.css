@@ -9,6 +9,7 @@
 
 .container-chat {
   overflow-y: scroll;
+  height: 100%;
   flex-grow: 1;
   font-size: 8pt;
 }

@@ -7,7 +7,10 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import Image from 'next/image';
+import ImagemBot from '@/public/assets/logo-bot.png'
+import ImagemUser from '@/public/assets/logo-user.png'
 import { base64toBlob } from '@/utils/base64';
+import WritingMessage from '@/elements/fragments/writingMessage';
 
 
 export default function AudioChat({ message, isWaiting }) {
@@ -41,16 +44,33 @@ export default function AudioChat({ message, isWaiting }) {
       <div className="container-audio-chat">
 
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-          {message.user ? message.user : "Nenhuma mensagem com resposta de texto foi encontrada"}
-          <Image
-            src={"/assets/speaker_off.svg"}
-            alt="Icone alto-falante"
-            className={'speaker-icon-avatar'}
-            width={75}
-            height={75}
-            priority
-            onClick={() => (!isPlaying ? playAudio() : null)}
-          />
+
+          {message.text.user ? <div
+            className={'user-message'}
+          >
+            <Image className='img' src={ImagemUser} alt="Imagem do usuário" />
+            <p>
+              {message.text.user}
+            </p>
+          </div> : <></>}
+          {isWaiting ? <WritingMessage /> :
+            <div
+              className={'bot-message'}
+            >
+              <Image className='img' src={ImagemBot} alt="Imagem do cicin" />
+                <p >
+                  {message.text.bot}
+                </p>
+                {message.text.user ? <Image
+                  src={"/assets/speaker_off.svg"}
+                  alt="Icone alto-falante"
+                  className={'speaker-icon-avatar'}
+                  width={25}
+                  height={25}
+                  priority
+                  onClick={() => (!isPlaying ? playAudio() : null)}
+                /> : <></>}
+              </div>}
         </div>
       </div>
     </div>
