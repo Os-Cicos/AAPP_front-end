@@ -1,3 +1,4 @@
+import UserProvider from '@/context/userContext';
 import '../public/fonts/css/fonts.css';
 import './globals.css'
 
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="pt-BR">
 
       <body>
-        {children}
+        <UserProvider>
+          {children}
+        </UserProvider>
       </body>
     </html>
   )

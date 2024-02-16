@@ -12,20 +12,27 @@
 }
 
 #buttonText {
-    padding-left: 0.3rem;
-    font-size: 10pt;
+    font-family: 'Poppins', sans-serif;
+    font-size: 8pt;
     font-weight: 500;
 }
 
 .bt-outlined {
+padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
     background-color: white !important;
     color: var(--azul) !important;
-    border: 0.3rem solid var(--azul) !important;
+    border: 0.2rem solid var(--azul) !important;
+}
+
+.bt-selected {
+    color: var(--azul-on) !important;
+    border: 0.2rem solid var(--azul-on) !important;
 }
 
 .bt-outlined:hover {
     color: var(--azul-on) !important;
-    border: 0.3rem solid var(--azul-on) !important;
+    border: 0.2rem solid var(--azul-on) !important;
 }
 
 #bg-button:hover {

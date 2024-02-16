@@ -1,39 +1,63 @@
 import React from "react";
 import Button from "@/elements/components/button_c05";
 import './style.css';
-import { AlterPDF } from "@/services";
+import { AlterPDF, listPDF } from "@/services";
+import WaintingSelection from "../waitingSelection";
 
-export default function SelectionMenu({ options }) {
-    const [isSelect, setIsSelect] = React.useState(Array(options.length).fill(false));
+/* SelectionMenu: Componente de seleção de conteeúddos
+    props:
+        options: array de objetos {title: 'Titulo do conteudo', icon: 'url para o icone', index:'number para representando o index dele no back'
+        exemplo de uso:
+        <SelectionMenu options={[
+                {title: 'Python', icon: 'assets/pythonIcon.svg', index: 0 },
+                { title: 'Lógica', icon: 'assets/logicaIcon.svg', index: 1 }]} />*/
+
+
+
+export default function SelectionMenu({ }) {
+
+
+    const [list, setList] = React.useState([{}])
+    const [isSelect, setIsSelect] = React.useState(Array(list.length).fill(false));
+
+    const [isWaiting, setIsWaiting] = React.useState(false);
+
+    React.useEffect(() => {
+        listPDF(setList)
+
+    }, [])
 
     const SelectPDF = (index) => {
-        AlterPDF(index).then((response)=>{
-            const newIsSelect = [...isSelect];
+        setIsWaiting(true)
+        AlterPDF(index).then((response) => {
+            const newIsSelect = Array(list.length).fill(false);
             newIsSelect[index] = true;
             setIsSelect(newIsSelect);
-        }).catch((error)=>{
+            setIsWaiting(false)
+        }).catch((error) => {
             alert(error.response.status)
+            setIsWaiting(false)
         })
 
     };
 
     return (
         <div id="bg-selectionMenu">
+            <WaintingSelection isWaiting={isWaiting} />
             Conteúdos
             <div id='bg-selectionMenu2'>
                 <div id='optionsMap'>
-                    {options.map((option) => {
-                        const { icon, title, index } = option;
-
+                    {list?.map((option) => {
+                        const { index, name } = option;
                         return (
                             <div className='optionItem' key={index}>
                                 <Button
-                                    icon={icon}
                                     type="button"
-                                    alt={`Botão para selecionar conteúdo de ${title}`}
-                                    text={title}
+                                    alt={`Botão para selecionar conteúdo de ${name}`}
+                                    text={name}
                                     outlined={true}
-                                    isSelect={isSelect[index]}
+                                    isSelected={isSelect[index]}
+                                    noIcon
                                     onClick={() => SelectPDF(index)}
                                 />
                             </div>

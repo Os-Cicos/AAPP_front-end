@@ -1,0 +1,68 @@
+.ball-containerSelection {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: var(--azul);;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes jumping {
+    from {
+      transform: translateY(-0.2rem);
+    }
+  
+    to {
+      transform: translateY(0.2rem);
+    }
+  }
+  
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .ballS-1,
+  .ballS-2,
+  .ballS-3 {
+    background-color: white !important;
+    margin: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 20rem;
+    animation-name: jumping;
+    transition: ease-out;
+    animation-duration: 300ms;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+  .enabled{
+    display: flex !important;
+  }
+  .disabled{
+    display: none !important;
+  }
+  
+  
+  .ballS-1 {
+    animation-delay: 0ms;
+  }
+  
+  .ballS-2 {
+    animation-delay: 100ms;
+  }
+  
+  .ballS-3 {
+    animation-delay: 300ms;
+  }
