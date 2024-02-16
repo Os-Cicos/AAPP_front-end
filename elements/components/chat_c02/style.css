@@ -41,7 +41,7 @@
   align-self: self-end;
   animation: pop-in 250ms;
   transition: ease-out  ;
-  word-break: break-all;
+  word-break: keep-all;
   text-overflow: ellipsis;
 }
 
@@ -60,7 +60,7 @@
   max-width: 20rem;
   animation: pop-in 250ms;
   transition: ease-out;
-  word-break: break-all;
+  word-break: keep-all;
   text-overflow: ellipsis;
 }
 

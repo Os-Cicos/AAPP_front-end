@@ -4,7 +4,7 @@
 
 // Importação de bibliotecas, estilos e componentes necessários para o componente.
 'use client'
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './style.css'
 import Chat from '@/elements/components/chat_c02';
 import Textfield from '@/elements/components/textfield_c03';
@@ -15,24 +15,29 @@ import { Query } from '@/services';
 import AudioChat from '@/elements/components/audioChat_c06';
 import SelectionMenu from '../selectionMenu';
 import { UserContext } from '@/context/userContext';
+import { MenuContext } from '@/context/menuContext';
 
 // Declaração do componente funcional ChatModal.
 export default function ChatModal({ setClose, isOpen }) {
     // Utilização do React Hook Form para gerenciar o estado do formulário.
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { user } = useContext(UserContext);
+    const { selected, setSelected } = useContext(MenuContext)
 
     // Estados locais para gerenciar mensagens, espera, arquivo de áudio e o estado do interruptor.
-    const [messages, setMessages] = React.useState([{ text: "Sou seu professor pessoal, como posso ajudá-lo? Selecione o conteúdo desejado.", isUser: false }])
+    const [messages, setMessages] = React.useState([{ text: "Sou seu professor pessoal, selecione o conteúdo desejado.", isUser: false }])
     const [lastAudioMessage, setLastAudioMessage] = React.useState({
-        text: { bot: "Nenhuma mensagem com resposta de texto foi encontrada", user: "" },
+        text: { bot: "Nenhuma mensagem com resposta de áudio foi encontrada", user: "" },
         audio_base64: null
     })
     const [isWaiting, setIsWaiting] = React.useState(false)
     const [isOn, setIsOn] = React.useState(false)
     const [isWaitingAudio, setIsWaitingAudio] = React.useState(false)
-
-    // Função para processar o envio do formulário.
+    useEffect(() => {
+        if (messages.length == 1 && selected.index != -1) {
+            setMessages([{ text: `Sou seu professor pessoal, conteúdo ${selected.name} selecionado.`, isUser: false }])
+        }
+    }, [selected])
     async function onsubmit(data) {
         try {
 
@@ -89,7 +94,7 @@ export default function ChatModal({ setClose, isOpen }) {
                         placeholder={'Digite aqui...'}
                         id={'TextField'} type={'text'}
                         register={register('query', { required: true })} />
-                    <Button type='submit' alt={'Enviar mensagem'} />
+                    <Button disabled={selected.index == -1? true: false} type='submit' alt={'Enviar mensagem'} />
                 </form>
             </div >
         </>

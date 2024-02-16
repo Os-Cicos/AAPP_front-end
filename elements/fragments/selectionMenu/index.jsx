@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "@/elements/components/button_c05";
 import './style.css';
 import { AlterPDF, listPDF } from "@/services";
 import WaintingSelection from "../waitingSelection";
+import { MenuContext } from "@/context/menuContext";
 
 /* SelectionMenu: Componente de seleção de conteeúddos
     props:
@@ -19,7 +20,7 @@ export default function SelectionMenu({ }) {
 
     const [list, setList] = React.useState([{}])
     const [isSelect, setIsSelect] = React.useState(Array(list.length).fill(false));
-
+    const { selected, setSelected } = useContext(MenuContext)
     const [isWaiting, setIsWaiting] = React.useState(false);
 
     React.useEffect(() => {
@@ -28,17 +29,20 @@ export default function SelectionMenu({ }) {
     }, [])
 
     const SelectPDF = (index) => {
-        setIsWaiting(true)
-        AlterPDF(index).then((response) => {
-            const newIsSelect = Array(list.length).fill(false);
-            newIsSelect[index] = true;
-            setIsSelect(newIsSelect);
-            setIsWaiting(false)
-        }).catch((error) => {
-            alert(error.response.status)
-            setIsWaiting(false)
-        })
-
+        setIsWaiting(true);
+        const selectedOption = list.find(option => option.index === index);
+        if (selectedOption) {
+            AlterPDF(index).then((response) => {
+                setSelected({ index: index, name: selectedOption.name });
+                const newIsSelect = Array(list.length).fill(false);
+                newIsSelect[index] = true;
+                setIsSelect(newIsSelect);
+                setIsWaiting(false);
+            }).catch((error) => {
+                alert(error.response.status);
+                setIsWaiting(false);
+            });
+        }
     };
 
     return (
