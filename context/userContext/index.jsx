@@ -12,7 +12,6 @@ export default function UserProvider({ children }) {
 
     useEffect(() => {
         if (!isNaN(iduser)) {
-            console.log(iduser);
             setUser(iduser);
         } else {
             alert('idUser inválido');

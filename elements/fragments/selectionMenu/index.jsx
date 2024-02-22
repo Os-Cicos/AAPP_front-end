@@ -54,17 +54,19 @@ export default function SelectionMenu({ }) {
                     {list?.map((option) => {
                         const { index, name } = option;
                         return (
-                            <div className='optionItem' key={index}>
-                                <Button
-                                    type="button"
-                                    alt={`Botão para selecionar conteúdo de ${name}`}
-                                    text={name}
-                                    outlined={true}
-                                    isSelected={isSelect[index]}
-                                    noIcon
-                                    onClick={() => SelectPDF(index)}
-                                />
-                            </div>
+                            <React.Fragment key={index}>
+                                <div className='optionItem'>
+                                    <Button
+                                        type="button"
+                                        alt={`Botão para selecionar conteúdo de ${name}`}
+                                        text={name}
+                                        outlined={true}
+                                        isSelected={isSelect[index]}
+                                        noIcon
+                                        onClick={() => SelectPDF(index)}
+                                    />
+                                </div>
+                            </React.Fragment>
                         );
                     })}
                 </div>
