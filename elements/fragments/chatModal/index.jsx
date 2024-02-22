@@ -49,7 +49,7 @@ export default function ChatModal({ setClose, isOpen }) {
                 setLastAudioMessage({ text: { bot: lastAudioMessage.text.bot, user: data.query }, audio_base64: lastAudioMessage.audio_base64 })
                 const queryResponse = messages
                 queryResponse.push({ text: data.query, isUser: true })
-                const response = await Query(data.query, isOn)
+                const response = await Query(data.query, isOn, user)
                 queryResponse.push({ text: response.data.response_text, isUser: false })
                 setIsWaitingAudio(false)
                 setLastAudioMessage({ text: { bot: response.data.response_text, user: data.query }, audio_base64: response.data.response_audio })
